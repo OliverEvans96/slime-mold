@@ -24,19 +24,21 @@ log_plot_handles = zeros(1,length(beta_vals));
 % Set simulation parameters
 k_max = 10;
 N_vals = 11:10:k_max*10+1;
-MCsteps = 10000;
+MCsteps = 200000;
 
+% Only run one long chain
+% beta_vals = 1.61;
+% N_vals = 121;
 
 beta_num = 0;
 for beta = beta_vals
-    
+    fprintf('\n---------')
     % Counter while looping through energy penalties
     beta_num = beta_num + 1;
     color_num = mod(beta_num-1,n_colors)+1;
     fprintf('\n')
     fprintf('beta = %.2f\n',beta)
-    fprintf('beta_num = %.2f\n',beta_num)
-    fprintf('color_num = %.2f\n',color_num)
+    fprintf('beta_num = %d\n',beta_num)
 
     % Allocate results arrays
     accept_rate = zeros(1,length(N_vals));
@@ -45,6 +47,7 @@ for beta = beta_vals
 
     k=1; % counter
     for N = N_vals
+        fprintf('\nN = %d\n',N)
         % Run simulation
         [accept_rate(k),avgResq(k),stdResq(k)] = mainpivot(N,beta,MCsteps,0);
 
@@ -103,6 +106,9 @@ legend(plot_handles,'Location','northwest')
 
 figure(2)
 log_legend = legend(log_plot_handles,'Location','northwest');
+
+figure(1)
+legend(plot_handles,'Location','northwest')
 
 % Save plots
 saveas(1,'regular.png')

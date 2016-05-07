@@ -38,6 +38,7 @@ bfin = 0; % index for last member of the block
 bResq = zeros(1,nblock); % average value per block
 avgResq = 0;  % average value of the end-to-end distance
 stdResq = 0;  % standard deviation of the end to end distance
+np = MCsteps/10; % How often to print timestep
 
 seed = sum(1000*clock); % generate a seed from the clock time
 % seed = 7; % use a fixed seed for debugging
@@ -90,10 +91,15 @@ for m = 1:MCsteps+MCequilib   % loop over Monte Carlo steps
     if m == MCequilib
         accept_rate = naccept/(MCequilib*N);  % display the acceptance rate
         naccept = 0; % reset the counter to zero
+        disp 'Equilibrated!'
     elseif m > MCequilib
         % once the system is equilibrated, calculate the end-to-end distance 
         % after each Monte Carlo step 
         Resq(m-MCequilib) = (x(N)-x(1))^2+(y(N)-y(1))^2; % end-to-end vector squared
+        % Print every 10%
+        if (mod(m-MCequilib,np) == 0)
+            fprintf('Post-Equil. MC Step %d (%.0f%%)\n',m-MCequilib,100*(m-MCequilib)/MCsteps);
+        end
     end
 end
 
@@ -133,5 +139,11 @@ if(draw)
     axis equal
     legend('initial','final')
 end
+
+% Save data
+filename = sprintf('../data/n%d_beta%.2f_save.mat',N,beta);
+fprintf('dir: %s\n',pwd)
+fprintf('fname: ../data/n%d_beta%.2f_save.mat\n',N,beta);
+save(filename)
 
 end
