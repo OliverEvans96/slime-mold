@@ -115,4 +115,8 @@ saveas(1,'regular.png')
 saveas(2,'log.png')
 saveas(3,'slope.png')
 
-
+% Save data
+filename = sprintf('../data/n_comparison.mat',N,beta);
+fprintf('dir: %s\n',pwd)
+fprintf('fname: ../data/n_comparison.mat\n',N,beta);
+save(filename)
