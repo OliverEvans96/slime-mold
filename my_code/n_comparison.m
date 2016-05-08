@@ -15,7 +15,7 @@ n_colors = length(colors);
 
 % Energy penalty for overlap
 penalty_vals = linspace(0,1,6);
-beta_vals = -log(penalty_vals);
+beta_vals = -log(penalty_vals(2:end)); % SKIP BETA=INF: ALREADY DONE
 
 % Save plot handles from log plot to remove some labels
 plot_handles = zeros(1,length(beta_vals));
