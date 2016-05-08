@@ -1,0 +1,173 @@
+
+                              < M A T L A B >
+                  Copyright 1984-2006 The MathWorks, Inc.
+                         Version 7.3.0.298 (R2006b)
+                              August 03, 2006
+
+ 
+  To get started, type one of these: helpwin, helpdesk, or demo.
+  For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> Warning: Log of zero.
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+---------
+beta = Inf
+beta_num = 1
+
+N = 11
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n11_betaInf_save.mat
+
+N = 21
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n21_betaInf_save.mat
+
+N = 31
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n31_betaInf_save.mat
+
+N = 41
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n41_betaInf_save.mat
+
+N = 51
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n51_betaInf_save.mat
+
+N = 61
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n61_betaInf_save.mat
+
+N = 71
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n71_betaInf_save.mat
+
+N = 81
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n81_betaInf_save.mat
+
+N = 91
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n91_betaInf_save.mat
+
+N = 101
+Equilibrated!
+Post-Equil. MC Step 20000 (10%)
+Post-Equil. MC Step 40000 (20%)
+Post-Equil. MC Step 60000 (30%)
+Post-Equil. MC Step 80000 (40%)
+Post-Equil. MC Step 100000 (50%)
+Post-Equil. MC Step 120000 (60%)
+Post-Equil. MC Step 140000 (70%)
+Post-Equil. MC Step 160000 (80%)
+Post-Equil. MC Step 180000 (90%)
+Post-Equil. MC Step 200000 (100%)
+dir: /home/oevans/slime-mold/my_code
+fname: ../data/n101_betaInf_save.mat
+m = 1.47 
+b = -0.14
+Warning: 
+Connection to the X11 Display Server (localhost:11.0) has been lost.
+No more graphics windows can no longer be displayed in this session.
+Graphics Objects can still be printed, and all commands should still work.
+We recommend that you try to save your current session and exit
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
