@@ -15,7 +15,7 @@ n_colors = length(colors);
 
 % Energy penalty for overlap
 penalty_vals = linspace(0,1,6);
-beta_vals = -log(penalty_vals(2:end)); % SKIP BETA=INF: ALREADY DONE
+beta_vals = -log(penalty_vals); % SKIP BETA=INF: ALREADY DONE
 
 % Save plot handles from log plot to remove some labels
 plot_handles = zeros(1,length(beta_vals));
@@ -24,7 +24,7 @@ log_plot_handles = zeros(1,length(beta_vals));
 % Set simulation parameters
 k_max = 10;
 N_vals = 11:10:k_max*10+1;
-MCsteps = 200000;
+MCsteps = 10000;
 
 % Only run one long chain
 % beta_vals = 1.61;
@@ -81,7 +81,7 @@ for beta = beta_vals
     % Log plot
     figure(2)
     hold on
-    log_plot_handles(beta_num) = plot(log(N_vals-1),log(avgResq),'o',...
+    log_plot_handles(beta_num) = errorbar(log(N_vals-1),log(avgResq),stdResq./avgResq,'o',...
         'color',colors(color_num),...
         'DisplayName',sprintf('\\beta=%.2f: m=%.2f',beta,m_line));
     plot(x_line,y_line,'--','color',colors(color_num))

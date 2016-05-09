@@ -5,6 +5,10 @@
 % of the line of best fit for a set of data
 % based a 2D least squares approximation.
 
+% Also calculate error for m and b
+% based on error in data
+
+
 function [m,b] = linleastsq(x,y)
     % Construct coefficient matrix
     A = zeros(2);

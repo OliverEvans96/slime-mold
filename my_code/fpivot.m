@@ -92,7 +92,7 @@ if (r < prob_threshold)  % move was successful, return new coordinates
 else % move was unsuccessful, return old coordinates, reset overlap counter
     xnew = x;
     ynew = y;
-    overlap = 0;
+    overlap = current_overlap;
 %     disp('reject')
 end
 
