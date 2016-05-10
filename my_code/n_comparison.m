@@ -9,6 +9,12 @@ clear all
 % Close all figures
 % close all
 
+% Save data
+filename = sprintf('../data/n_comparison.mat');
+fprintf('n_comparison.m\n')
+fprintf('dir: %s\n',pwd)
+fprintf('fname: ../data/n_comparison.mat\n');
+
 % A list of some colors
 colors = ['b','g','r','m','c'];
 n_colors = length(colors);
@@ -22,10 +28,10 @@ beta_vals = penalty_vals.^2;
 %k_max = 4;
 %N_vals = (11:10:k_max*10+1)'; % Evenly spaced in linear scale
 N_vals = (2.^(4:7))'      % Evenly spaced in log scale
-MCsteps = 100;
+MCsteps = 10000
 
-%seed = sum(1000*clock); % generate a seed from the clock time
-seed = 7; % use a fixed seed for debugging
+seed = sum(1000*clock); % generate a seed from the clock time
+%seed = 7; % use a fixed seed for debugging
 rand('state',seed); % seed Matlab's random number generator
 
 % Only run one long chain
@@ -90,11 +96,15 @@ for beta = beta_vals
 			avgCV(k,beta_num),stdCV(k,beta_num)] = mainpivot(N,beta,MCsteps,0,seed);
 
 		% Error for log(Resq)
-		logerrResq(k,beta_num) = stdResq(k,beta_num)./avgResq(k,beta_num);
+        logerrResq(k,beta_num) = stdResq(k,beta_num)./avgResq(k,beta_num);
+        
+        % Save workspace
+        fprintf('Saving workspace\n')
+        save(filename)
 
-%         fprintf('k = %3d: ',k)
-%         fprintf('%5.2f ',[accept_rate(k),avgResq(k),stdResq(k)])
-%         fprintf('\n')
+%       fprintf('k = %3d: ',k)
+%       fprintf('%5.2f ',[accept_rate(k),avgResq(k),stdResq(k)])
+%       fprintf('\n')
 
         % Increment counter
         k = k + 1;
@@ -131,13 +141,22 @@ for beta = beta_vals
 
 	% Slope plot
 	figure(3)
-	slope_plot_handles(beta_num) = plot(beta,log(m_line(beta_num)),...
+	slope_plot_handles(beta_num) = errorbar(beta,log(m_line(beta_num)),...
+        sqrt(m_var(beta_num))/m_var(beta_num),...
 		'o-','color',colors(color_num),...
 		'DisplayName',sprintf('\\chi^2=%.2f, Q=%.2f',...
 		chi2(beta_num),Q(beta_num)));
-	slope_error_bars(:,beta_num) = terrorbar(beta,log(m_line(beta_num)),...
-		sqrt(m_var(beta_num))/m_var(beta_num),0.05);
-	set(slope_error_bars(:,beta_num),'Color',colors(color_num))
+	%slope_error_bars(:,beta_num) = terrorbar(beta,log(m_line(beta_num)),...
+	%	sqrt(m_var(beta_num))/m_var(beta_num),0.05);
+	%set(slope_error_bars(:,beta_num),'Color',colors(color_num))
+
+%	slope_plot_handles(beta_num) = plot(beta,log(m_line(beta_num)),...
+%		'o-','color',colors(color_num),...
+%		'DisplayName',sprintf('\\chi^2=%.2f, Q=%.2f',...
+%		chi2(beta_num),Q(beta_num)));
+%	slope_error_bars(:,beta_num) = terrorbar(beta,log(m_line(beta_num)),...
+%		sqrt(m_var(beta_num))/m_var(beta_num),0.05);
+%	set(slope_error_bars(:,beta_num),'Color',colors(color_num))
 	title('Slope Plot')
 	xlabel('\beta')
 	ylabel('ln slope (m\_line)')
@@ -152,7 +171,6 @@ for beta = beta_vals
 	xlabel('n')
 	ylabel('Number of overlaps')
 	drawnow
-
 end
 
 % CV Plot results
@@ -165,7 +183,8 @@ for N = N_vals'
 		'DisplayName',sprintf('n=%.2f',N-1));
 	title('CV plot')
 	xlabel('\beta')
-	ylabel('$\displaystyle \langle \frac{C_V}{n} \rangle$','Interpreter','latex')
+	%ylabel('$\displaystyle \langle \frac{C_V}{n} \rangle$','Interpreter','latex')
+	ylabel('C_V/n')
 	drawnow
 	k = k + 1;
     color_num = mod(k-1,n_colors)+1;
@@ -190,8 +209,5 @@ saveas(3,'slope.png')
 saveas(4,'CV.png')
 saveas(4,'overlap.png')
 
-% Save data
-filename = sprintf('../data/n_comparison.mat',N,beta);
-fprintf('dir: %s\n',pwd)
-fprintf('fname: ../data/n_comparison.mat\n',N,beta);
+% Save workspace
 save(filename)
