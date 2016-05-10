@@ -98,7 +98,7 @@ for beta = beta_vals
 	Resq_plot_handles(beta_num) = errorbar(N_vals-1,avgResq(:,beta_num),...
 		stdResq(:,beta_num),'o-','color',colors(color_num),...
 		'DisplayName',sprintf('\\beta=%.2f',beta));
-	title('Resq plot')
+	title(['R_e^2 plot','   (seed=',num2str(seed),')'])
 	ylabel('\langle R_e^2 \rangle')
 	xlabel('n')
 	drawnow
@@ -109,7 +109,7 @@ for beta = beta_vals
 		logerrResq(:,beta_num),'o','color',colors(color_num),...
 		'DisplayName',sprintf('\\beta=%.2f: m=%.2f',beta,m_line(beta_num)));
 	plot(x_line(:,beta_num),y_line(:,beta_num),'--','color',colors(color_num))
-	title('Log Plot')
+	title(['Log Plot','   (seed=',num2str(seed),')'])
 	ylabel('ln \langle R_e^2 \rangle')
 	xlabel('ln n')
 	drawnow
@@ -127,10 +127,16 @@ for beta = beta_vals
 	ylabel('slope (m\_line)')
     
     % Draw plot w/ error bars
-	slope_plot_handles(beta_num) = errorbar(spx,spy,spe,...
+	%slope_plot_handles(beta_num) = errorbar(spx,spy,spe,...
+	%	'o-','color',colors(color_num),...
+	%	'DisplayName',sprintf('Q=%.2f',Q(beta_num)));
+    title(['Slope Plot','   (seed=',num2str(seed),')'])
+
+	slope_error_bars(:,beta_num) = terrorbar(spx,spy,spe,0.2);
+	slope_plot_handles(beta_num) = plot(spx,spy,...
 		'o-','color',colors(color_num),...
 		'DisplayName',sprintf('Q=%.2f',Q(beta_num)));
-    title('Slope Plot')
+	set(slope_error_bars(:,beta_num),'Color',colors(color_num))
 	drawnow
 
 	% Overlap Plot results
@@ -138,7 +144,7 @@ for beta = beta_vals
 	overlap_plot_handles(beta_num) = errorbar(N_vals-1,avgoverlap(:,beta_num)./(N-1),...
 		stdoverlap(:,beta_num)/(N-1),'o-','color',colors(color_num),...
 		'DisplayName',sprintf('\\beta=%.2f',beta));
-	title('Overlap plot')
+	title(['Overlap plot','   (seed=',num2str(seed),')'])
 	xlabel('n')
 	ylabel('Number of overlaps')
 	drawnow
@@ -152,10 +158,10 @@ for N = N_vals'
  	CV_plot_handles(k) = errorbar(beta_vals,avgCV(k,:)/(N-1),...
 		stdCV(k,:)/(N-1),'o-','color',colors(color_num),...
 		'DisplayName',sprintf('N=%d',N));
-	title('CV plot')
+	title(['CV plot','   (seed=',num2str(seed),')'])
 	xlabel('\beta')
-	%ylabel('$\displaystyle \langle \frac{C_V}{n} \rangle$','Interpreter','latex')
-	ylabel('C_V/n')
+	ylabel('$\displaystyle \langle \frac{C_V}{n} \rangle$','Interpreter','latex')
+	%ylabel('C_V/n')
 	drawnow
 	k = k + 1;
     color_num = mod(k-1,n_colors)+1;
