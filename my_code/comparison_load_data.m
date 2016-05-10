@@ -161,6 +161,10 @@ for N = N_vals'
     color_num = mod(k-1,n_colors)+1;
 end
 
+% Linear interpolation on slope plot
+figure(3)
+plot(beta_vals,m_line,'k--','DisplayName','lin. interp.')
+
 % Add legends
 legend(Resq_plot_handles,'Location','northwest')
 legend(log_plot_handles,'Location','northwest')
