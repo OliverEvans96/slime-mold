@@ -151,7 +151,7 @@ color_num=1;
 for N = N_vals'
  	CV_plot_handles(k) = errorbar(beta_vals,avgCV(k,:)/(N-1),...
 		stdCV(k,:)/(N-1),'o-','color',colors(color_num),...
-		'DisplayName',sprintf('n=%.2f',N-1));
+		'DisplayName',sprintf('N=%d',N));
 	title('CV plot')
 	xlabel('\beta')
 	%ylabel('$\displaystyle \langle \frac{C_V}{n} \rangle$','Interpreter','latex')
