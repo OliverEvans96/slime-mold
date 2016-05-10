@@ -179,11 +179,11 @@ legend(CV_plot_handles,'Location','northwest')
 legend(overlap_plot_handles,'Location','northwest')
 
 % Save plots
-saveas(1,'resq.png')
-saveas(2,'log.png')
-saveas(3,'slope.png')
-saveas(4,'CV.png')
-saveas(4,'overlap.png')
+saveas(1,'../img/resq.png')
+saveas(2,'../img/log.png')
+saveas(3,'../img/slope.png')
+saveas(4,'../img/CV.png')
+saveas(4,'../img/overlap.png')
 
 % % Save workspace
 % save(filename)
