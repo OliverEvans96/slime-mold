@@ -117,13 +117,14 @@ for beta = beta_vals
 	% Slope plot
 	figure(3)
     % Slope plotting variables
-    spx = beta;
+    T = 1/beta;
+    spx = -log(beta);
 %     spy = log(m_line(beta_num));
 %     spe = m_std(beta_num)/m_line(beta_num);
     spy = m_line(beta_num);
     spe = m_std(beta_num);
     % Axis labels
-	xlabel('\beta')
+	xlabel('cosh(ln T)')
 	ylabel('slope (m\_line)')
     
     % Draw plot w/ error bars
@@ -165,16 +166,16 @@ end
 % Add legends
 legend(Resq_plot_handles,'Location','northwest')
 legend(log_plot_handles,'Location','northwest')
-legend(slope_plot_handles,'Location','southeast')
+legend(slope_plot_handles,'Location','southwest')
 legend(CV_plot_handles,'Location','northwest')
 legend(overlap_plot_handles,'Location','northwest')
 
-% Save plots
-saveas(1,'resq.png')
-saveas(2,'log.png')
-saveas(3,'slope.png')
-saveas(4,'CV.png')
-saveas(4,'overlap.png')
+% % Save plots
+% saveas(1,'resq.png')
+% saveas(2,'log.png')
+% saveas(3,'slope.png')
+% saveas(4,'CV.png')
+% saveas(4,'overlap.png')
 
 % % Save workspace
 % save(filename)
