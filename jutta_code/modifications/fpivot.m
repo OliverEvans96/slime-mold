@@ -76,26 +76,26 @@ del_overlap = overlap - current_overlap;
 
 % Threshold for accepting new state
 if (del_overlap <= 0)
-    prob_threshold = 1
+    prob_threshold = 1;
 else
-    prob_threshold = exp(-beta*del_overlap)
+    prob_threshold = exp(-beta*del_overlap);
 end
 
 % Generate random number
-r = rand
+r = rand;
 
 if (r < prob_threshold)  % move was successful, return new coordinates
     xnew = xtemp;
     ynew = ytemp;
     rflag = 0; % move was not rejected
-    disp('accept')
+%     disp('accept')
 else % move was unsuccessful, return old coordinates, reset overlap counter
     xnew = x;
     ynew = y;
-    overlap = 0;
-    disp('reject')
+    overlap = current_overlap;
+%     disp('reject')
 end
 
-fprintf('\n\n\n')
+% fprintf('\n\n\n')
 
 end

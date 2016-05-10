@@ -1,0 +1,45 @@
+% fitlinerrors.m
+% Fit a line to data points
+% Accepts x, y and sigma (y-error) as arguments
+% Returns a (slope), b (intercept) 
+% and errors for both
+
+% From Numerical Recipes in C
+% 15.2 Fitting Data to a Straight Line
+
+function [a,b,a_err,b_err] = linfiterrors(x,y,sigma)
+
+% Basic statistical quantities
+S   = sum(1./sigma.^2);
+Sx  = sum(x./sigma.^2);
+Sy  = sum(y./sigma.^2);
+Sxx = sum(x.^2./sigma.^2);
+Syy = sum(y.^2./sigma.^2);
+Sxy = sum(x.*y./sigma.^2);
+
+% Rescaled model parameters
+t = (x-Sx/S)./sigma;
+Stt = sum(t.^2);
+
+
+
+% Solution
+Delta = S*Sxx - Sx^2;
+a = (Sxx*Sy - Sx*Sxy)/Delta;
+b = (S*Sxy - Sx*Sy)/Delta;
+
+% Errors
+a_err = Sxx/Delta;
+b_err = S/Delta;
+
+% Correlation coefficient
+r_ab = -Sxx/sqrt(S*Sxx);
+
+% Chi Squared
+chi2 = sum( ((y-a-b*x)./sigma).^2 );
+
+% Goodness-of-fit
+Q = gammainc((N-2)/2,chi2/2);
+
+
+end
