@@ -97,7 +97,7 @@ for beta = beta_vals
 	figure(1)
 	Resq_plot_handles(beta_num) = errorbar(N_vals-1,avgResq(:,beta_num),...
 		stdResq(:,beta_num),'o-','color',colors(color_num),...
-		'DisplayName',sprintf('\\beta=%.2f: m=%.2f',beta,m_line(beta_num)));
+		'DisplayName',sprintf('\\beta=%.2f',beta));
 	title('Resq plot')
 	ylabel('\langle R_e^2 \rangle')
 	xlabel('n')
@@ -129,8 +129,7 @@ for beta = beta_vals
     % Draw plot w/ error bars
 	slope_plot_handles(beta_num) = errorbar(spx,spy,spe,...
 		'o-','color',colors(color_num),...
-		'DisplayName',sprintf('\\chi^2=%.2f, Q=%.2f',...
-		chi2(beta_num),Q(beta_num)));
+		'DisplayName',sprintf('Q=%.2f',Q(beta_num)));
     title('Slope Plot')
 	drawnow
 
@@ -138,7 +137,7 @@ for beta = beta_vals
 	figure(5)
 	overlap_plot_handles(beta_num) = errorbar(N_vals-1,avgoverlap(:,beta_num)./(N-1),...
 		stdoverlap(:,beta_num)/(N-1),'o-','color',colors(color_num),...
-		'DisplayName',sprintf('\\beta=%.2f: m=%.2f',beta,m_line(beta_num)));
+		'DisplayName',sprintf('\\beta=%.2f',beta));
 	title('Overlap plot')
 	xlabel('n')
 	ylabel('Number of overlaps')
